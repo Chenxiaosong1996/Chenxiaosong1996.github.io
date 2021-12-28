@@ -2,11 +2,11 @@
 <html lang="zh-CN">
   <head>
     <meta charset="utf-8" />
-  <meta name="version" content="V1.2.0">
+  <meta name="version" content="V1.2.1">
   <meta name="name" content="chenxiaosong1996.github.io">
   <meta name="author" content="Mr.chen || Chen.dezhen@outlook.com">
   <meta name="keyword" content="陈小松,陈小松的博客,dezhen.chen,chenxiaosong1996,chenxiaosong1996.top,chenxiaosong1996.github.io">
-  <meta name="description" content="欢迎来到我（陈小松）的博客，这是一套基于vite的框架，采用了Element UI组件库，后续会继续丰富和优化，希望能给您带来一份不错的使用体验!">
+  <meta name="description" content="欢迎来到我的博客。这是一套基于 vite 的框架，搭配了 Element Plus 组件库，后续会继续丰富功能、优化体验，希望能给您带来一份不错的使用体验!">
     <meta name="full-screen" content="yes" />
     <meta name="x5-page-mode" content="app" />
     <meta name="renderer" content="webkit" />
@@ -20,6 +20,7 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <link rel="icon" href="/favicon.svg" />
+    <link rel="stylesheet" href="https://chenxiaosong1996.github.io/assets/style/gitalk.min.css">
     <link rel="stylesheet" href="https://chenxiaosong1996.github.io/assets/style/framer.min.css" />
     <link rel="stylesheet" href="https://chenxiaosong1996.github.io/assets/style/weather.min.css" />
     <link rel="stylesheet" href="https://chenxiaosong1996.github.io/assets/style/htmlview.min.css" />
@@ -30,8 +31,9 @@
     <script type="text/javascript" src="https://chenxiaosong1996.github.io/assets/scripts/xss.min.js"></script>
     <script type="text/javascript" src="https://chenxiaosong1996.github.io/assets/scripts/nprogress.min.js"></script>
     <script type="text/javascript" src="https://chenxiaosong-1257029795.cos.ap-shanghai.myqcloud.com/scripts/axios.min.js"></script>
-    <script type="text/javascript" src="https://chenxiaosong-1257029795.cos.ap-shanghai.myqcloud.com/scripts/moment.min.js"></script>
     <script type="text/javascript" src="https://chenxiaosong-1257029795.cos.ap-shanghai.myqcloud.com/scripts/highlight.min.js"></script>
+    <script type="text/javascript" src="https://chenxiaosong-1257029795.cos.ap-shanghai.myqcloud.com/scripts/gitalk/gitalk.min.js"></script>
+    <script type="text/javascript" src="https://chenxiaosong-1257029795.cos.ap-shanghai.myqcloud.com/scripts/moment/moment.min.js"></script>
     <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/wangeditor@latest/dist/wangEditor.min.js"></script> -->
     <!-- <script type="text/javascript" src="https://unpkg.com/cos-js-sdk-v5/dist/cos-js-sdk-v5.min.js"></script> -->
     <script defer="defer" type="text/javascript" src="https://chenxiaosong-1257029795.cos.ap-shanghai.myqcloud.com/scripts/DPlayer/flv.min.js"></script>
@@ -40,10 +42,10 @@
     <script defer="defer" type="text/javascript" src="https://chenxiaosong-1257029795.cos.ap-shanghai.myqcloud.com/scripts/DPlayer/webtorrent.min.js"></script>
     <script defer="defer" type="text/javascript" src="https://chenxiaosong-1257029795.cos.ap-shanghai.myqcloud.com/scripts/md5/md5.min.js"></script>
     <script defer="defer" type="text/javascript" src="https://chenxiaosong-1257029795.cos.ap-shanghai.myqcloud.com/scripts/DPlayer/DPlayer.min.js"></script>
-    <script type="module" crossorigin src="https://chenxiaosong1996.github.io/assets/index.9422d155.js"></script>
-    <link rel="modulepreload" href="https://chenxiaosong1996.github.io/assets/vendor.c9f2fe5d.js">
-    <link rel="stylesheet" href="https://chenxiaosong1996.github.io/assets/vendor.e7647006.css">
-    <link rel="stylesheet" href="https://chenxiaosong1996.github.io/assets/index.c8cbb225.css">
+    <script type="module" crossorigin src="https://chenxiaosong1996.github.io/assets/index.b07d6df8.js"></script>
+    <link rel="modulepreload" href="https://chenxiaosong1996.github.io/assets/vendor.f8a176c2.js">
+    <link rel="stylesheet" href="https://chenxiaosong1996.github.io/assets/vendor.c40f63d9.css">
+    <link rel="stylesheet" href="https://chenxiaosong1996.github.io/assets/index.393491b4.css">
     <script type="module">!function(){try{new Function("m","return import(m)")}catch(o){console.warn("vite: loading legacy build because dynamic import is unsupported, syntax error above should be ignored");var e=document.getElementById("vite-legacy-polyfill"),n=document.createElement("script");n.src=e.src,n.onload=function(){System.import(document.getElementById('vite-legacy-entry').getAttribute('data-src'))},document.body.appendChild(n)}}();</script>
   </head>
 
@@ -316,6 +318,6 @@
   
   <script nomodule>!function(){var e=document,t=e.createElement("script");if(!("noModule"in t)&&"onbeforeload"in t){var n=!1;e.addEventListener("beforeload",(function(e){if(e.target===t)n=!0;else if(!e.target.hasAttribute("nomodule")||!n)return;e.preventDefault()}),!0),t.type="module",t.src=".",e.head.appendChild(t),t.remove()}}();</script>
     <script nomodule id="vite-legacy-polyfill" src="https://chenxiaosong1996.github.io/assets/polyfills-legacy.dc896e1d.js"></script>
-    <script nomodule id="vite-legacy-entry" data-src="https://chenxiaosong1996.github.io/assets/index-legacy.537b8b22.js">System.import(document.getElementById('vite-legacy-entry').getAttribute('data-src'))</script>
+    <script nomodule id="vite-legacy-entry" data-src="https://chenxiaosong1996.github.io/assets/index-legacy.d352e544.js">System.import(document.getElementById('vite-legacy-entry').getAttribute('data-src'))</script>
 </body>
 </html>
