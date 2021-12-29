@@ -22,7 +22,7 @@ npm run lint
 
     ├── public
     |   ├── 404.html         - 用来同步index.html内容，以解决 github 不支持单页面应用问题
-    │   ├── favicon.svg      - 浏览器tab缩略图
+    │   ├── favicon.ico      - 浏览器tab缩略图
     │   └── assets           - 项目通用的静态资源统一存放于此
     │       ├── images
     │       ├── scripts
