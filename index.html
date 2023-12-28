@@ -1,295 +1,496 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="version" content="V1.2.2">
-    <meta name="name" content="chenxiaosong1996.github.io">
-    <meta name="author" content="Mr.chen || Chen.dezhen@outlook.com">
-    <meta name="keyword" content="陈小松,陈小松的博客,dezhen.chen,chenxiaosong1996,chenxiaosong1996.top,chenxiaosong1996.github.io">
-    <meta name="description" content="欢迎来到我的博客。这是一套基于 vite 的框架，搭配了 Element Plus 组件库，后续会继续丰富功能、优化体验，希望能给您带来一份不错的使用体验!">
-    <meta name="full-screen" content="yes" />
-    <meta name="x5-page-mode" content="app" />
-    <meta name="renderer" content="webkit" />
-    <meta name="x5-fullscreen" content="true" />
-    <meta name="x5-orientation" content="portrait" />
-    <meta name="browsermode" content="application" />
-    <meta name="force-rendering" content="webkit" />
-    <meta name="screen-orientation" content="portrait" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <link rel="icon" href="/favicon.ico" />
-    <title>陈小松的Blog</title>
-  </head>
-  <body>
-    <div id="app">
-      <style>
-        body,
-        #app {
-          height: 100vh;
-          font-family: 'Montserrat', sans-serif;
-          text-align: center;
-          overflow: hidden;
-        }
+<html lang="zxx">
 
-        body .loader {
-          height: 100%;
-          position: relative;
-          margin: auto;
-          width: 400px;
-        }
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/plugins/bootstrap.min.css">
+    <link rel="stylesheet" href="css/plugins/locomotive-scroll.css">
+    <link rel="stylesheet" href="css/plugins/swiper.min.css">
+    <link rel="stylesheet" href="css/plugins/fancybox.min.css">
+    <link rel="stylesheet" href="css/plugins/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style-light.css" id="trm-switch-style">
+    <title>Trueman</title>
+</head>
 
-        body .loader_overlay {
-          width: 150px;
-          height: 150px;
-          background: transparent;
-          box-shadow: 0px 0px 0px 1000px rgba(255, 255, 255, 0.67), 0px 0px 19px 0px rgba(0, 0, 0, 0.16) inset;
-          border-radius: 100%;
-          z-index: -1;
-          position: absolute;
-          left: 0;
-          right: 0;
-          top: 0;
-          bottom: 0;
-          margin: auto;
-        }
-
-        body .loader_cogs {
-          z-index: -2;
-          width: 100px;
-          height: 100px;
-          top: -120px !important;
-          position: absolute;
-          left: 0;
-          right: 0;
-          top: 0;
-          bottom: 0;
-          margin: auto;
-        }
-
-        body .loader_cogs__top {
-          position: relative;
-          width: 100px;
-          height: 100px;
-          transform-origin: 50px 50px;
-          -webkit-animation: rotate 10s infinite linear;
-          animation: rotate 10s infinite linear;
-        }
-
-        body .loader_cogs__top div:nth-of-type(1) {
-          transform: rotate(30deg);
-        }
-
-        body .loader_cogs__top div:nth-of-type(2) {
-          transform: rotate(60deg);
-        }
-
-        body .loader_cogs__top div:nth-of-type(3) {
-          transform: rotate(90deg);
-        }
-
-        body .loader_cogs__top div.top_part {
-          width: 100px;
-          border-radius: 10px;
-          position: absolute;
-          height: 100px;
-          background: #f98db9;
-        }
-
-        body .loader_cogs__top div.top_hole {
-          width: 50px;
-          height: 50px;
-          border-radius: 100%;
-          background: white;
-          position: absolute;
-          position: absolute;
-          left: 0;
-          right: 0;
-          top: 0;
-          bottom: 0;
-          margin: auto;
-        }
-
-        body .loader_cogs__left {
-          position: relative;
-          width: 80px;
-          transform: rotate(16deg);
-          top: 28px;
-          transform-origin: 40px 40px;
-          animation: rotate_left 10s 0.1s infinite reverse linear;
-          left: -24px;
-          height: 80px;
-        }
-
-        body .loader_cogs__left div:nth-of-type(1) {
-          transform: rotate(30deg);
-        }
-
-        body .loader_cogs__left div:nth-of-type(2) {
-          transform: rotate(60deg);
-        }
-
-        body .loader_cogs__left div:nth-of-type(3) {
-          transform: rotate(90deg);
-        }
-
-        body .loader_cogs__left div.left_part {
-          width: 80px;
-          border-radius: 6px;
-          position: absolute;
-          height: 80px;
-          background: #97ddff;
-        }
-
-        body .loader_cogs__left div.left_hole {
-          width: 40px;
-          height: 40px;
-          border-radius: 100%;
-          background: white;
-          position: absolute;
-          position: absolute;
-          left: 0;
-          right: 0;
-          top: 0;
-          bottom: 0;
-          margin: auto;
-        }
-
-        body .loader_cogs__bottom {
-          position: relative;
-          width: 60px;
-          top: -65px;
-          transform-origin: 30px 30px;
-          -webkit-animation: rotate_left 10.2s 0.4s infinite linear;
-          animation: rotate_left 10.2s 0.4s infinite linear;
-          transform: rotate(4deg);
-          left: 79px;
-          height: 60px;
-        }
-
-        body .loader_cogs__bottom div:nth-of-type(1) {
-          transform: rotate(30deg);
-        }
-
-        body .loader_cogs__bottom div:nth-of-type(2) {
-          transform: rotate(60deg);
-        }
-
-        body .loader_cogs__bottom div:nth-of-type(3) {
-          transform: rotate(90deg);
-        }
-
-        body .loader_cogs__bottom div.bottom_part {
-          width: 60px;
-          border-radius: 5px;
-          position: absolute;
-          height: 60px;
-          background: #ffcd66;
-        }
-
-        body .loader_cogs__bottom div.bottom_hole {
-          width: 30px;
-          height: 30px;
-          border-radius: 100%;
-          background: white;
-          position: absolute;
-          position: absolute;
-          left: 0;
-          right: 0;
-          top: 0;
-          bottom: 0;
-          margin: auto;
-        }
-
-        /* Animations */
-        @-webkit-keyframes rotate {
-          from {
-            transform: rotate(0deg);
-          }
-
-          to {
-            transform: rotate(360deg);
-          }
-        }
-
-        @keyframes rotate {
-          from {
-            transform: rotate(0deg);
-          }
-
-          to {
-            transform: rotate(360deg);
-          }
-        }
-
-        @-webkit-keyframes rotate_left {
-          from {
-            transform: rotate(16deg);
-          }
-
-          to {
-            transform: rotate(376deg);
-          }
-        }
-
-        @keyframes rotate_left {
-          from {
-            transform: rotate(16deg);
-          }
-
-          to {
-            transform: rotate(376deg);
-          }
-        }
-
-        @-webkit-keyframes rotate_right {
-          from {
-            transform: rotate(4deg);
-          }
-
-          to {
-            transform: rotate(364deg);
-          }
-        }
-
-        @keyframes rotate_right {
-          from {
-            transform: rotate(4deg);
-          }
-
-          to {
-            transform: rotate(364deg);
-          }
-        }
-      </style>
-      <div class="loader">
-        <div class="loader_overlay"></div>
-        <div class="loader_cogs">
-          <div class="loader_cogs__top">
-            <div class="top_part"></div>
-            <div class="top_part"></div>
-            <div class="top_part"></div>
-            <div class="top_hole"></div>
-          </div>
-          <div class="loader_cogs__left">
-            <div class="left_part"></div>
-            <div class="left_part"></div>
-            <div class="left_part"></div>
-            <div class="left_hole"></div>
-          </div>
-          <div class="loader_cogs__bottom">
-            <div class="bottom_part"></div>
-            <div class="bottom_part"></div>
-            <div class="bottom_part"></div>
-            <div class="bottom_hole"></div>
-          </div>
+<body>
+    <div class="trm-app-frame">
+        <div class="trm-preloader">
+            <div class="trm-holder">
+                <div class="preloader">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
         </div>
-      </div>
+        <div class="trm-mode-swich-animation-frame">
+            <div class="trm-mode-swich-animation"><i class="far fa-sun"></i>
+                <div class="trm-horizon"></div><i class="far fa-moon"></i>
+            </div>
+        </div>
+        <div id="trm-dynamic-content" class="trm-swup-animation">
+            <div id="trm-scroll-container" class="trm-scroll-container" data-scroll-container style="opacity: 0">
+                <div data-scroll-section id="content" class="trm-scroll-section">
+                    <div class="trm-top-bar" data-scroll data-scroll-sticky data-scroll-target="#content"
+                        data-scroll-offset="-10">
+                        <div class="container">
+                            <div class="trm-left-side"><a href="index.html" class="trm-logo-frame trm-anima-link">
+                                    <div class="trm-logo-text">True<span>man</span></div>
+                                </a></div>
+                            <div class="trm-right-side">
+                                <div class="trm-menu">
+                                    <nav>
+                                        <ul>
+                                            <li class="current-menu-item menu-item-has-children"><a
+                                                    href="index.html">Home</a>
+                                                <ul>
+                                                    <li><a href="index.html">Image</a></li>
+                                                    <li><a href="home-video.html">Video</a></li>
+                                                    <li><a href="home-slideshow.html">Slideshow</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="menu-item-has-children"><a href="portfolio.html">Portfolio</a>
+                                                <ul>
+                                                    <li><a href="portfolio.html">Portfolio 1</a></li>
+                                                    <li><a href="portfolio-2.html">Portfolio 2</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="resume.html">Resume</a></li>
+                                            <li><a href="contact.html">Contact</a></li>
+                                            <li class="menu-item-has-children"><a href="blog.html">Blog</a>
+                                                <ul>
+                                                    <li><a href="blog.html">Blog 1</a></li>
+                                                    <li><a href="blog-2.html">Blog 2</a></li>
+                                                    <li><a href="publication.html">Publication</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                                <div class="trm-mode-switcher-place"></div><a href="files/cv.txt" download
+                                    class="trm-btn trm-btn-sm">Download cv <i class="fas fa-arrow-down"></i></a>
+                            </div>
+                            <div class="trm-menu-btn"><span></span></div>
+                        </div>
+                    </div>
+                    <div class="trm-content-start">
+                        <div class="trm-banner" data-scroll data-scroll-direction="vertical" data-scroll-speed="-1"><img
+                                src="img/banner.jpg" alt="banner" class="trm-banner-cover" data-scroll
+                                data-scroll-direction="vertical" data-scroll-speed="-4">
+                            <div class="trm-banner-content trm-overlay">
+                                <div class="container" data-scroll data-scroll-direction="vertical"
+                                    data-scroll-speed="1">
+                                    <div class="row">
+                                        <div class="col-lg-4"></div>
+                                        <div class="col-lg-8">
+                                            <div class="trm-banner-text">
+                                                <div class="trm-label trm-mb-20">Hi my new friend!</div>
+                                                <h1 class="trm-mb-30">Discover my<br>art space!</h1><a data-fancybox
+                                                    href="https://www.youtube.com/watch?v=Mo_vRjtkgSI"
+                                                    class="trm-btn trm-btn-border">Video Resume <i
+                                                        class="fas fa-play"></i></a>
+                                            </div><a href="#about-triger" data-scroll-to="#about-triger"
+                                                data-scroll-offset="-130" class="trm-scroll-hint-frame">
+                                                <div class="trm-scroll-hint"></div><span class="trm-label">Scroll
+                                                    down</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="trm-main-card-frame trm-sidebar">
+                                        <div class="trm-main-card" data-scroll data-scroll-repeat data-scroll-sticky
+                                            data-scroll-target="#content" data-scroll-offset="60">
+                                            <div class="trm-mc-header">
+                                                <div class="trm-avatar-frame trm-mb-20"><img class="trm-avatar"
+                                                        src="img/avatar.jpg" alt="Avatar">
+                                                    <div class="trm-dot"></div>
+                                                </div>
+                                                <h5 class="trm-name trm-mb-15">Emma Trueman</h5>
+                                                <div class="trm-label">I`m <span class="trm-typed-text"></span></div>
+                                            </div>
+                                            <div class="trm-divider trm-mb-40 trm-mt-40"></div>
+                                            <div class="trm-social"><a href="#." target="_blank"><i
+                                                        class="fab fa-linkedin-in"></i></a><a href="#."
+                                                    target="_blank"><i class="fab fa-dribbble"></i></a><a href="#."
+                                                    target="_blank"><i class="fab fa-behance"></i></a><a href="#."
+                                                    target="_blank"><i class="fab fa-twitter"></i></a></div>
+                                            <div class="trm-divider trm-mb-40 trm-mt-40"></div>
+                                            <ul class="trm-table trm-mb-20">
+                                                <li>
+                                                    <div class="trm-label">Residence:</div>
+                                                    <div class="trm-label trm-label-light">Turkey</div>
+                                                </li>
+                                                <li>
+                                                    <div class="trm-label">City:</div>
+                                                    <div class="trm-label trm-label-light">Istanbul</div>
+                                                </li>
+                                                <li>
+                                                    <div class="trm-label">Age:</div>
+                                                    <div class="trm-label trm-label-light">26</div>
+                                                </li>
+                                            </ul>
+                                            <div class="trm-divider trm-mb-40 trm-mt-40"></div>
+                                            <div class="text-center"><a data-fancybox href="#trm-order"
+                                                    class="trm-btn">Contact me <i class="far fa-envelope"></i></a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-8">
+                                    <div class="trm-content" id="trm-content">
+                                        <div data-scroll data-scroll-repeat data-scroll-offset="500" id="about-triger">
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-4">
+                                                <div class="trm-counter-up trm-scroll-animation" data-scroll
+                                                    data-scroll-offset="40">
+                                                    <div class="trm-counter-number"><span
+                                                            class="trm-counter">74</span><span
+                                                            class="trm-counter-symbol">+</span></div>
+                                                    <div class="trm-divider trm-mb-20 trm-mt-20"></div>
+                                                    <div class="trm-label">Completed projects</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="trm-counter-up trm-scroll-animation" data-scroll
+                                                    data-scroll-offset="40">
+                                                    <div class="trm-counter-number"><span
+                                                            class="trm-counter">50</span><span
+                                                            class="trm-counter-symbol">+</span></div>
+                                                    <div class="trm-divider trm-mb-20 trm-mt-20"></div>
+                                                    <div class="trm-label">Happy customers</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="trm-counter-up trm-scroll-animation" data-scroll
+                                                    data-scroll-offset="40">
+                                                    <div class="trm-counter-number"><span
+                                                            class="trm-counter">14</span><span
+                                                            class="trm-counter-symbol">+</span></div>
+                                                    <div class="trm-divider trm-mb-20 trm-mt-20"></div>
+                                                    <div class="trm-label">Honors and Awards</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <h5 class="trm-mb-40 trm-title-with-divider">My story <span
+                                                        data-number="01"></span></h5>
+                                                <blockquote class="trm-scroll-animation" data-scroll
+                                                    data-scroll-offset="40">Consectetur adipisicing elit. Rem minima
+                                                    maiores,praesentium,aperiam eveniet tenetur consequatur beatae id
+                                                    est. </blockquote>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <h5 class="trm-mb-40 trm-mt-40 trm-title-with-divider">Video resume
+                                                    <span data-number="02"></span></h5>
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <div class="trm-video trm-scroll-animation" data-scroll
+                                                    data-scroll-offset="40">
+                                                    <div class="trm-video-content trm-overlay"><img src="img/video.jpg"
+                                                            alt="video-cover">
+                                                        <div class="trm-button-puls"></div><a data-fancybox
+                                                            href="https://www.youtube.com/watch?v=Mo_vRjtkgSI"
+                                                            class="trm-play-button"><i class="fas fa-play"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <h5 class="trm-mb-40 trm-mt-40 trm-title-with-divider">My Services <span
+                                                        data-number="03"></span></h5>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="trm-service-icon-box trm-scroll-animation" data-scroll
+                                                    data-scroll-offset="40">
+                                                    <div class="trm-service-content">
+                                                        <div class="trm-icon"><img src="img/icons/icon-1.svg" alt="icon"
+                                                                class="trm-black-icon"><img src="img/icons/icon-1w.svg"
+                                                                alt="icon" class="trm-white-icon"></div>
+                                                        <h6 class="trm-mb-20">Architecture</h6>
+                                                        <div class="trm-mb-20">Dolor sit amet,consectetur adipisicing
+                                                            elit. Delectus esse commodi.</div><a data-fancybox
+                                                            href="#trm-order" class="trm-label trm-label-color">Order
+                                                            now <i class="fas fa-arrow-right"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="trm-service-icon-box trm-scroll-animation" data-scroll
+                                                    data-scroll-offset="40">
+                                                    <div class="trm-service-content">
+                                                        <div class="trm-icon"><img src="img/icons/icon-2.svg" alt="icon"
+                                                                class="trm-black-icon"><img src="img/icons/icon-2w.svg"
+                                                                alt="icon" class="trm-white-icon"></div>
+                                                        <h6 class="trm-mb-20">UI/UX Design</h6>
+                                                        <div class="trm-mb-20">Dolor sit amet,consectetur adipisicing
+                                                            elit. Delectus esse commodi.</div><a data-fancybox
+                                                            href="#trm-order" class="trm-label trm-label-color">Order
+                                                            now <i class="fas fa-arrow-right"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="trm-service-icon-box trm-scroll-animation" data-scroll
+                                                    data-scroll-offset="40">
+                                                    <div class="trm-service-content">
+                                                        <div class="trm-icon"><img src="img/icons/icon-3.svg" alt="icon"
+                                                                class="trm-black-icon"><img src="img/icons/icon-3w.svg"
+                                                                alt="icon" class="trm-white-icon"></div>
+                                                        <h6 class="trm-mb-20">Interior Design</h6>
+                                                        <div class="trm-mb-20">Dolor sit amet,consectetur adipisicing
+                                                            elit. Delectus esse commodi.</div><a data-fancybox
+                                                            href="#trm-order" class="trm-label trm-label-color">Order
+                                                            now <i class="fas fa-arrow-right"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="trm-service-icon-box trm-scroll-animation" data-scroll
+                                                    data-scroll-offset="40">
+                                                    <div class="trm-service-content">
+                                                        <div class="trm-icon"><img src="img/icons/icon-4.svg" alt="icon"
+                                                                class="trm-black-icon"><img src="img/icons/icon-4w.svg"
+                                                                alt="icon" class="trm-white-icon"></div>
+                                                        <h6 class="trm-mb-20">Game design</h6>
+                                                        <div class="trm-mb-20">Dolor sit amet,consectetur adipisicing
+                                                            elit. Delectus esse commodi.</div><a data-fancybox
+                                                            href="#trm-order" class="trm-label trm-label-color">Order
+                                                            now <i class="fas fa-arrow-right"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <h5 class="trm-mb-40 trm-title-with-divider">Price plans <span
+                                                        data-number="08"></span></h5>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="trm-price trm-popular trm-scroll-animation" data-scroll
+                                                    data-scroll-offset="40">
+                                                    <div class="trm-price-header">
+                                                        <h6>Hourly Payment</h6>
+                                                    </div>
+                                                    <div class="trm-price-number"><sup>$</sup>29<sup>h</sup></div>
+                                                    <div class="trm-divider trm-mb-40 trm-mt-40"></div>
+                                                    <ul class="trm-price-list">
+                                                        <li class="trm-label">Amet lorem.</li>
+                                                        <li class="trm-label">Dolor ipsum</li>
+                                                        <li class="trm-label trm-label-light">Sit amet</li>
+                                                        <li class="trm-label trm-label-light">Lorem dolor</li>
+                                                    </ul><a data-fancybox href="#trm-order" class="trm-btn">Order now <i
+                                                            class="fas fa-arrow-right"></i></a>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="trm-price trm-scroll-animation" data-scroll
+                                                    data-scroll-offset="40">
+                                                    <div class="trm-price-header">
+                                                        <h6>Full Time</h6>
+                                                    </div>
+                                                    <div class="trm-price-number"><sup>$</sup>2999<sup>h</sup></div>
+                                                    <div class="trm-divider trm-mb-40 trm-mt-40"></div>
+                                                    <ul class="trm-price-list">
+                                                        <li class="trm-label">Amet lorem.</li>
+                                                        <li class="trm-label">Dolor ipsum</li>
+                                                        <li class="trm-label">Sit amet</li>
+                                                        <li class="trm-label">Lorem dolor</li>
+                                                    </ul><a data-fancybox href="#trm-order" class="trm-btn">Order now <i
+                                                            class="fas fa-arrow-right"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <h5 class="trm-mb-40 trm-title-with-divider">Testimonials <span
+                                                        data-number="09"></span></h5>
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <div class="swiper-container trm-testimonials-slider trm-scroll-animation"
+                                                    data-scroll data-scroll-offset="40">
+                                                    <div class="swiper-wrapper">
+                                                        <div class="swiper-slide">
+                                                            <div class="trm-testimonial-card" data-swiper-parallax
+                                                                data-swiper-parallax-scale=".8"
+                                                                data-swiper-parallax-opacity="0"
+                                                                data-swiper-parallax-duration="800">
+                                                                <div class="trm-testimonial-author"><img
+                                                                        src="img/testimonials/1.jpg" alt="Client">
+                                                                    <h6 class="trm-mb-15">Paul Freeman</h6>
+                                                                    <div class="trm-text-sm trm-accent-color">
+                                                                        <i>Interior designer</i></div>
+                                                                </div>
+                                                                <div class="trm-testimonial-text">
+                                                                    <p>Lorem ipsum dolor sit amet,consectetur
+                                                                        adipisicing elit. Molestias officia,debitis
+                                                                        minus repellat saepe? Deleniti blanditiis optio
+                                                                        inventore nulla dicta fugiat culpa quis
+                                                                        unde,sequi debitis ex ab!Sapiente vitae rem
+                                                                        tempore sunt!Aperiam eveniet mollitia,quae
+                                                                        architecto nostrum.</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                            <div class="trm-testimonial-card" data-swiper-parallax
+                                                                data-swiper-parallax-scale=".8"
+                                                                data-swiper-parallax-opacity="0"
+                                                                data-swiper-parallax-duration="800">
+                                                                <div class="trm-testimonial-author"><img
+                                                                        src="img/testimonials/2.jpg" alt="Client">
+                                                                    <h6 class="trm-mb-15">Oscar Oldman</h6>
+                                                                    <div class="trm-text-sm trm-accent-color">
+                                                                        <i>Photographer</i></div>
+                                                                </div>
+                                                                <div class="trm-testimonial-text">
+                                                                    <p>Lorem ipsum dolor sit amet,consectetur
+                                                                        adipisicing elit. Molestias officia,debitis
+                                                                        minus repellat saepe? Deleniti blanditiis optio
+                                                                        inventore nulla dicta fugiat culpa quis
+                                                                        unde,sequi debitis ex ab!Sapiente vitae rem
+                                                                        tempore sunt!Aperiam eveniet mollitia,quae
+                                                                        architecto nostrum.</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                            <div class="trm-testimonial-card" data-swiper-parallax
+                                                                data-swiper-parallax-scale=".8"
+                                                                data-swiper-parallax-opacity="0"
+                                                                data-swiper-parallax-duration="800">
+                                                                <div class="trm-testimonial-author"><img
+                                                                        src="img/testimonials/3.jpg" alt="Client">
+                                                                    <h6 class="trm-mb-15">Viktoria Newman</h6>
+                                                                    <div class="trm-text-sm trm-accent-color">
+                                                                        <i>Model</i></div>
+                                                                </div>
+                                                                <div class="trm-testimonial-text">
+                                                                    <p>Lorem ipsum dolor sit amet,consectetur
+                                                                        adipisicing elit. Molestias officia,debitis
+                                                                        minus repellat saepe? Deleniti blanditiis optio
+                                                                        inventore nulla dicta fugiat culpa quis
+                                                                        unde,sequi debitis ex ab!Sapiente vitae rem
+                                                                        tempore sunt!Aperiam eveniet mollitia,quae
+                                                                        architecto nostrum.</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="trm-slider-navigation">
+                                                        <div
+                                                            class="trm-testimonials-slider-prev trm-btn trm-btn-circle">
+                                                            <i class="fas fa-arrow-left"></i></div>
+                                                        <div
+                                                            class="trm-testimonials-slider-next trm-btn trm-btn-circle">
+                                                            <i class="fas fa-arrow-right"></i></div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-12">
+                                                        <h5 class="trm-mb-40 trm-title-with-divider">Latest Publications
+                                                            <span data-number="10"></span></h5>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <div class="trm-blog-card trm-scroll-animation" data-scroll
+                                                            data-scroll-offset="40"><a href="publication.html"
+                                                                class="trm-cover-frame trm-anima-link"><img
+                                                                    src="img/blog/b1.jpg" alt="cover"></a>
+                                                            <div class="trm-card-descr">
+                                                                <div class="trm-label trm-category trm-mb-20"><a
+                                                                        href="#.">Lifestyle</a></div>
+                                                                <h5 class="trm-mb-20"><a href="publication.html"
+                                                                        class="trm-anima-link">Create your own beauty
+                                                                        blog with Trueman</a></h5>
+                                                                <div class="trm-divider trm-mb-20 trm-mt-20"></div>
+                                                                <ul class="trm-card-data trm-label">
+                                                                    <li>17 JULYS</li>
+                                                                    <li>14:32</li>
+                                                                    <li>Emma T.</li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <div class="trm-blog-card trm-scroll-animation" data-scroll
+                                                            data-scroll-offset="40"><a href="publication.html"
+                                                                class="trm-cover-frame trm-anima-link"><img
+                                                                    src="img/blog/b7.jpg" alt="cover"></a>
+                                                            <div class="trm-card-descr">
+                                                                <div class="trm-label trm-category trm-mb-20"><a
+                                                                        href="#.">Lifestyle</a></div>
+                                                                <h5 class="trm-mb-20"><a href="publication.html"
+                                                                        class="trm-anima-link">Create your own beauty
+                                                                        blog with Trueman</a></h5>
+                                                                <div class="trm-divider trm-mb-20 trm-mt-20"></div>
+                                                                <ul class="trm-card-data trm-label">
+                                                                    <li>17 JULYS</li>
+                                                                    <li>14:32</li>
+                                                                    <li>Emma T.</li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="trm-divider trm-mb-40"></div>
+                                        <footer class="trm-scroll-animation" data-scroll data-scroll-offset="50">
+                                            <div class="trm-label">© 2021 All Rights Reserved.</div>
+                                            <div class="trm-label">Designed by:<a href="http://www.bootstrapmb.com"
+                                                    target="_blank">Nazar Miller</a></div>
+                                        </footer>
+                                    </div>
+                                    <div id="trm-order" class="trm-order">
+                                        <div class="trm-popup-content"><img src="img/popup.jpg" alt="photo">
+                                            <div class="trm-popup-form-frame">
+                                                <h5 class="trm-mb-40">Write me a message</h5>
+                                                <form><input type="text" placeholder="Name"><input type="email"
+                                                        placeholder="Email"><textarea rows="6"
+                                                        placeholder="Message"></textarea><button type="submit"
+                                                        class="trm-btn">Send <i class="fas fa-arrow-right"></i></button>
+                                                </form>
+                                                <div class="trm-text-sm trm-mt-20">* I promise the confidentiality of
+                                                    your personal information</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="trm-hidden-switcher">
+            <div class="trm-mode-switcher"><i class="far fa-sun"></i><input class="tgl tgl-light" id="trm-swich"
+                    type="checkbox"><label class="trm-swich" for="trm-swich"></label><i class="far fa-moon"></i></div>
+        </div>
     </div>
-
-    <script>
-      location.href = 'https://chenxiaosong1996.top'
-    </script>
+    <script src="js/plugins/jquery.min.js"></script>
+    <script src="js/plugins/swup.min.js"></script>
+    <script src="js/plugins/locomotive-scroll.js"></script>
+    <script src="js/plugins/typing.js"></script>
+    <script src="js/plugins/fancybox.min.js"></script>
+    <script src="js/plugins/swiper.min.js"></script>
+    <script src="js/main.js"></script>
 </body>
+
 </html>
