@@ -10,51 +10,24 @@
 
 Table of Content
 
-	01. Music Background
-	02. Isotope Portfolio Setup
-	03. Blogs Masonry Setup
-	04. Preloader
-	05. Drop Menu
-	07. Portfolio Tilt
-	08. Testimonial Slider
-	09. Magnific Popup 
-	10. Validate Contact Form
-	11. Cursor Effect
-	12. Magnetic Effect
-	13. Slider
-	14. Video Youtube
-	15. Google Map
+	01. Isotope Portfolio Setup
+	02. Blogs Masonry Setup
+	03. Preloader
+	04. Drop Menu
+	05. Portfolio Tilt
+	06. Testimonial Slider
+	07. Magnific Popup 
+	08. Validate Contact Form
+	09. Cursor Effect
+	10. Magnetic Effect
+	11. Slider
+	12. Baidu Map
 
 ----------------------------------- */
 
 $(window).on("load", function() {
-	
 	/* -----------------------------------
-			01. Music Background
-	----------------------------------- */
-	// $('body').append('<audio loop autoplay volume="1" id="audio-player"><source src="music.mp3" type="audio/mpeg"></audio>');
-    // 	var audio = document.getElementById("audio-player");
-    // 	audio.volume = 0.2;
-	
-	// if($(window).length) {
-	// 	$('.music-bg').css({'visibility':'visible'});
-	// 	$('body').addClass("audio-on");
-	// 	if ($('body').hasClass('audio-off')) {
-    //     	$('body').removeClass('audio-on');
-	// 	} 
-	// 	$(".music-bg").on('click', function() {
-	// 		$('body').toggleClass("audio-on audio-off");         
-	// 		if ($('body').hasClass('audio-off')) {
-	// 			audio.pause();
-	// 		} 
-	// 		if ($('body').hasClass('audio-on')) {
-	// 			audio.play();
-	// 		}
-	// 	});
-	// }
-	
-	/* -----------------------------------
-			02. Isotope Portfolio Setup
+			01. Isotope Portfolio Setup
 	----------------------------------- */
     if( $('.portfolio-items').length ) {
         var $elements = $(".portfolio-items"),
@@ -81,7 +54,7 @@ $(window).on("load", function() {
     }
 	
 	/* -----------------------------------
-			03. Blogs Masonry Setup
+			02. Blogs Masonry Setup
 	----------------------------------- */
     $('.blog-masonry').isotope({ layoutMode: 'moduloColumns' });
 	
@@ -93,7 +66,7 @@ $(function() {
 	bannerSlider();
 	
 	/* -----------------------------------
-			04. Preloader
+			03. Preloader
 	----------------------------------- */
 	var counter = 0;
 	var c = 0;
@@ -116,14 +89,14 @@ $(function() {
 	}, 9);
 	
 	/* -----------------------------------
-			05. Drop Menu
+			04. Drop Menu
 	----------------------------------- */
 	$('.animation-wrap').on('mouseenter mouseleave', function () {
 		$(this).children('ul').stop(true, false, true).slideToggle(300);
 	});
 	
 	/* -----------------------------------
-			07. Portfolio Tilt
+			05. Portfolio Tilt
 	----------------------------------- */
 	$('.portfolio .portfolio-items .item figure').tilt({
         maxTilt: 10,
@@ -134,7 +107,7 @@ $(function() {
     });
 	
 	/* -----------------------------------
-			08. Testimonial Slider
+			06. Testimonial Slider
 	----------------------------------- */
 	var swiper = new Swiper('.testimonials', {
       spaceBetween: 30,
@@ -150,13 +123,13 @@ $(function() {
     });
 	
 	/* -----------------------------------
-	      09. Magnific Popup 
+	      07. Magnific Popup 
 	----------------------------------- */
 	$(".portfolio-items .image-link").magnificPopup({type: "image"});
 	$(".portfolio-items .video-link").magnificPopup({type: "iframe"});
 	
 	/* -----------------------------------
-	    10. Validate Contact Form
+	    08. Validate Contact Form
 	----------------------------------- */
 	if ($("#contact-form").length) {
         $("#contact-form").validate({
@@ -203,7 +176,7 @@ $(function() {
     }
 	
 	/* -----------------------------------
-			11. Cursor Effect
+			09. Cursor Effect
 	----------------------------------- */
 	var isMobile = false;
 	if (/Android|webOS|iPhone|iPod|iPad|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))	{
@@ -374,7 +347,7 @@ $(function() {
     }
 	
 	/* -----------------------------------
-			12. Magnetic Effect
+			10. Magnetic Effect
 	----------------------------------- */
 	$(document).on('mousemove', function (e) {
 		$('.magnetic').each(function () {
@@ -416,7 +389,7 @@ $(function() {
 	}
 	
 	
-	// Setup Google Map
+	// Setup Baidu Map
 	if($('#map').length) {
         initMap();
      };
@@ -424,7 +397,7 @@ $(function() {
 });
 
 /* -----------------------------------
-		13. Slider Background
+		11. Slider Background
 ----------------------------------- */
 function bannerSlider() {
     if ($(".section-slider").length > 0) {
@@ -481,41 +454,22 @@ function bannerSlider() {
 }
 
 /* -----------------------------------
-			15. Google Map
+			12. Baidu Map
 ----------------------------------- */
 function initMap() {
     var latitude = $("#map").data('latitude'),
         longitude = $("#map").data('longitude'),
         zoom = $("#map").data('zoom');
-        // cordinates = new google.maps.LatLng(latitude, longitude);
-
-    // var styles = [{"stylers":[{"saturation":-100},{"gamma":0.8},{"lightness":4},{"visibility":"on"}]},{"featureType":"landscape.natural","stylers":[{"visibility":"on"},{"color":"#5dff00"},{"gamma":4.97},{"lightness":-5},{"saturation":100}]}];
-	
-    //     var mapOptions = {
-    //     zoom: zoom,
-    //     center: cordinates,
-    //     mapTypeControl: false,
-    //     disableDefaultUI: true,
-    //     zoomControl: true,
-    //     scrollwheel: false,
-    //     styles: styles
-    // };
-    // var map = new google.maps.Map(document.getElementById('map'), mapOptions);
-    // var marker = new google.maps.Marker({
-    //     position: cordinates,
-    //     map: map,
-    //     title: "We are here!"
-    // });
 
     var map = new BMapGL.Map("map", {
         minZoom: 5,
         maxZoom: zoom,
         enableAutoResize: true,
-      });
-      var point = new BMapGL.Point(latitude, longitude);
-      map.centerAndZoom(point, zoom);
-      map.enableDragging();
-    
-      var marker = new BMapGL.Marker(new BMapGL.Point(latitude, longitude)); // 创建点
-      map.addOverlay(marker); //增加点
+    });
+    var point = new BMapGL.Point(latitude, longitude);
+    map.centerAndZoom(point, zoom);
+    map.enableDragging();
+
+    var marker = new BMapGL.Marker(new BMapGL.Point(latitude, longitude)); // 创建点
+    map.addOverlay(marker); //增加点
 }

@@ -103,105 +103,6 @@ blockquote span img {
   border-radius: 50%;
 }
 
-/* Music Bg */
-.music-bg {
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100px;
-  right: 55px;
-  bottom: 55px;
-  padding: 13px 14px;
-  text-align: center;
-  visibility: hidden;
-  z-index: 10;
-  background-color: rgba(14, 15, 16, 0.5);
-  border-top-left-radius: 10px;
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
-}
-
-.music-bg.blog-music {
-  position: absolute;
-  width: 60px;
-  right: 25px;
-  bottom: -20px;
-  padding: 0;
-  visibility: hidden;
-  background-color: transparent;
-}
-
-.music-bg .sound {
-  margin-top: 2px;
-}
-
-.music-bg .sound i {
-  color: #2f9064;
-  font-size: 22px;
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
-}
-
-.music-bg:hover .sound i {
-  color: #11d27a;
-}
-
-.audio-on .music-bg .sound .on {
-  display: block;
-}
-
-.audio-on .music-bg .sound .off,
-.audio-off .music-bg .sound .on {
-  display: none;
-}
-
-.music-bg .lines {
-  display: flex;
-  width: 24px;
-  height: 24px;
-  margin: 0 auto 10px;
-  align-items: flex-end;
-}
-
-.music-bg .lines span {
-  display: inline-flex;
-  margin: 0px 1px;
-  width: 7px;
-  height: 5px;
-  background: #fff;
-}
-
-.audio-on .music-bg .lines span:nth-child(1) {
-  -webkit-animation: musicline 2s 0.5s ease-out alternate infinite;
-  animation: musicline 2s 0.5s ease-out alternate infinite;
-}
-
-.audio-on .music-bg .lines span:nth-child(2) {
-  -webkit-animation: musicline 2s 1s ease-out alternate infinite;
-  animation: musicline 2s 1s ease-out alternate infinite;
-}
-
-.audio-on .music-bg .lines span:nth-child(3) {
-  -webkit-animation: musicline 2s 1.5s ease-out alternate infinite;
-  animation: musicline 2s 1.5s ease-out alternate infinite;
-}
-
-.audio-on .music-bg .lines span:nth-child(4) {
-  -webkit-animation: musicline 2s 0.25s ease-out alternate infinite;
-  animation: musicline 2s 0.25s ease-out alternate infinite;
-}
-
-.audio-on .music-bg .lines span:nth-child(5) {
-  -webkit-animation: musicline 2s 0.75s ease-out alternate infinite;
-  animation: musicline 2s 0.75s ease-out alternate infinite;
-}
-
-.audio-on .music-bg .lines span:nth-child(6) {
-  -webkit-animation: musicline 2s 1.25s ease-out alternate infinite;
-  animation: musicline 2s 1.25s ease-out alternate infinite;
-}
-
 /* Button Style */
 .button {
   position: relative;
@@ -3215,8 +3116,7 @@ svg g [fill] {
   .swiper-counter,
   .scroll-down,
   .slider-nav:before,
-  .slider-nav:after,
-  .music-bg .sound {
+  .slider-nav:after {
     display: none;
   }
 
@@ -3317,21 +3217,12 @@ svg g [fill] {
     background-color: rgba(14, 15, 16, 0.7);
   }
 
-  .music-bg {
-    width: 60px;
-  }
-
   .bottom-panel {
     max-width: 190px;
   }
 
   .slider-control-wrap .left-side {
     margin: 0 15px;
-  }
-
-  .music-bg {
-    right: 35px;
-    bottom: 35px;
   }
 
   .bottom-panel {
