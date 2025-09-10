@@ -15,7 +15,6 @@ Table of Content
 	03. Blogs Masonry Setup
 	04. Preloader
 	05. Drop Menu
-	06. Newsletter Open
 	07. Portfolio Tilt
 	08. Testimonial Slider
 	09. Magnific Popup 
@@ -122,12 +121,6 @@ $(function() {
 	$('.animation-wrap').on('mouseenter mouseleave', function () {
 		$(this).children('ul').stop(true, false, true).slideToggle(300);
 	});
-	
-	/* -----------------------------------
-			06. Newsletter Open
-	----------------------------------- */
-	$('.newsletter').on('click', function() {$('.newsletter-block').toggleClass('open');});
-	$('.news-close').on('click', function() {$('.newsletter-block').removeClass('open');});
 	
 	/* -----------------------------------
 			07. Portfolio Tilt
@@ -486,41 +479,6 @@ function bannerSlider() {
 	}
 
 }
-
-/* -----------------------------------
-		14. Video Youtube
------------------------------------ */
-var player,
-	card  = document.querySelector( '.video' ),
-	play  = document.querySelector( '.video-play' ),
-	video = document.querySelector( '.video-content' );
-
-// Youtube API
-function onYouTubePlayerAPIReady() {
-	player = new YT.Player('video', {
-		events: {
-			'onReady': onPlayerReady
-		}
-	});
-}
-
-// Player Ready
-function onPlayerReady(event) {
-	play.addEventListener( 'click', function() {
-		card.classList.add( 'video-is-open' );
-		setTimeout(function() {
-			video.style.display = 'block';
-			player.playVideo();
-		}, 500);
-	});
-}
-
-// Inject YouTube API script
-var tag = document.createElement('script');
-tag.src = "https://www.youtube.com/player_api";
-var firstScriptTag = document.getElementsByTagName('script')[0];
-firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
 
 /* -----------------------------------
 			15. Google Map
